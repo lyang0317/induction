@@ -1,0 +1,138 @@
+# JVM
+
+### 组成
+
+    * 程序计数器 当前线程所执行的字节码的行号指示器
+    * 虚拟机栈 java方法执行的内存模型，每个方法被执行会创建一个栈帧，用于存储局部变量表、操作栈、动态链接，方法出口等，一个方法的调用完成就是
+    栈帧在虚拟机栈中入栈出栈的过程
+    * 本地方法栈
+    * java堆
+        * Eden区
+        * From Survivor To Survior
+    * 方法区 各个线程共享的内存区域，用于存放加载的类信息、常量、静态变量、即时编译的代码等。jdk8元数据区取代永久带，且
+    使用的本地内存
+    * 运行时常量池 方法区的一部分，存放编译器生成的各种字面量和符号引用
+    * 直接内存
+    
+### 对象访问方式
+    句柄访问 堆中划分出一块句柄池，reference存储句柄地址
+    直接指针访问 reference存储对象地址
+    
+### 参数配置
+   * 栈大小通过-XSs配置，不足引起StackOverflowError
+   * 堆内存通过-Xms配置，默认是物理内存的1/64，最大内存由-Xmx配置，默认为物理内存的1/4，当空余堆小于40%时，会增大到设置
+   的-Xmx大小，阈值比例由-XX:MinHeapFreeRatio设置，空余内存大于70%时，会减少至-Xms大小，阈值比例由-XX:MaxHeapFreeRatio设
+   置。
+   
+# 垃圾回收
+
+### 标记方式
+    * 引用计数 无法解决循环引用的问题
+    * 可达性分析
+    
+### 回收方法
+    * 标记清除 减少停顿时间，但会造成内存碎片
+    * 复制 适合大量回收的场景，比如新生代回收
+    * 标记整理 解决碎片问题，但会增加停顿时间
+    * 分带收集 每种区域采取不同回收方式，即新生代复制（minor gc），年老带标记整理（major gc）
+    
+### 组成
+    
+    * 年轻带 1/3
+        Eden 8/10
+        Survivor0 1/10
+        Survivor1 1/10
+        -XX:InitialSurvivorRatio设置Eden/Survivor比例
+        -Xmn设置年轻带大小
+    * 年老带 2/3
+        -XX:Newratio设置Old/Young比例
+    * 永久带
+        -XX:PermSize -XX:MaxPermSize
+
+### 回收过程
+    1. 触发minor gc时，Eden中存活对象复制到to Survivor中
+    2. 再看from Survivor，如果次数达到年老带标准，就复制到年老带，如果没有则复制到to Survivor，如果to Survivor满了，则
+    复制到年老带
+    3. 然后调换from Survivor和to Survivor，保证to Survivor是空的等待对象复制
+    
+### 触发时机
+    * minor gc
+        * eden区满
+    * full gc
+        * 老年代空间不足以支持下一次minor gc
+        * 用户调用System.gc,但是否执行由JVM决定
+    
+### 垃圾回收器
+
+![](gccollect.png)
+
+    * 并发标记清除 CMS 
+        * 初始标记-并发标记-重新标记-并发清除
+        * 配置复杂，合理的低停顿，用于中等或更小的堆
+    * G1 
+        * 初始标记-并发标记-最终标记-筛选回收
+        * 不用配置，低停顿，用于大容量的堆，牺牲了吞吐量和堆空间
+        
+
+    选择垃圾收集器因素：
+    1. 吞吐量
+    2. 停顿时间
+    3. 堆容量 
+### java内存模型
+
+    定义了各个变量的访问规则，即在JVM中将变量存储和取出的底层细节
+    * 主内存
+    * 工作内存
+    
+### java内存模型承诺
+    * 原子性
+    * 指令重排
+        * 编译器优化重排
+        * 处理器指令重排
+        * 内存系统重排
+    * 可见性
+    * 有序性
+
+### volatile
+
+    * 保证修饰的变量对所有线程可见
+    * 禁止重排序
+    
+### 类加载顺序
+    * Bootstrap 启动类 $JAVA_HOME中jre/lib/rt.jar里所有的class
+    * Extension 扩展类 $JAVA_HOME中jre/lib/*.jar或-Djava.ext.dirs指定目录下的jar包
+    * App 系统类 classpath中指定的jar包及目录中class
+    * Custom 自定义类 
+    先检查类是否被已加载，检查顺序是自底向上，而加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。
+    
+### happens-before
+    
+> JMM向程序员提供的happens-before规则能满足程序员的要求，JMM的happens-before规则不但简单易懂，而且也向程序员提供了足够强的内存可见性保证
+
+    * 程序顺序规则：一个线程中的每个操作，happens-before 于该线程中的任意后续操作。
+    * 监视器锁规则：对一个监视器锁的解锁，happens-before 于随后对这个监视器锁的加锁。
+    * volatile变量规则：对一个volatile域的写，happens-before 于任意后续对这个volatile域的读。
+    * 传递性：如果A happens-before B，且B happens-before C，那么A happens-before C。
+    * Thread.start()的调用会happens-before于启动线程里面的动作。
+    * Thread中的所有动作都happens-before于其他线程从Thread.join中成功返回。
+    
+### 调优命令
+    * jps 输出jvm运行的进程状态信息
+    * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长）
+    * jmap 查看堆内存使用情况（查看内存泄漏）
+    * jstat JVM统计监测工具（查看gc）
+    
+### 引用类型
+* 强引用 StrongReference
+    new出来的对象
+* 软引用 SoftReference
+    * 内存不足，垃圾回收器会回收
+    * 可实现内存敏感的高速缓存
+    * 可以和ReferenceQueue使用
+* 弱引用 WeakReference
+    * 更短暂的生命周期，一旦发现只有弱引用的对象，不管内存如何，都会回收
+    * 可以和ReferenceQueue使用
+* 虚引用 PhantomReference
+    * 和没有引用一样，在任何时候都会被回收
+    * 用来跟踪被垃圾回收器回收的活动
+    * 必须和ReferenceQueue使用
