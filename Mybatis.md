@@ -32,6 +32,8 @@
 
     SqlSession级别，默认开启
     
+    查询调用BaseExecutor，组装key（组装updateList）查询本地缓存，有则直接返回，没有则查询数据库，更新时清除缓存
+    
 * 二级缓存
 
     Mapper级别，默认不开启
@@ -40,4 +42,6 @@
         <setting name="cacheEnabled" value="true"/>
     </settings>
     ```
+    
+    SqlSessionFactoryBuilder先初始化cache，执行查询调用CacheExecutor，如果缓存有则直接返回，没有则查询数据库。
 
