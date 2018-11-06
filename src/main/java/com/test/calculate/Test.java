@@ -203,7 +203,7 @@ public class Test {
         Iterator iterator = list.iterator();
         ListIterator listIterator = list.listIterator();
         for (Object o : list) {
-            iterator.
+
         }
     }
 
