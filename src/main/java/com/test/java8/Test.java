@@ -7,6 +7,8 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
 public class Test {
 
     public static Test create(TestInterface<Test> supplier ) {
@@ -25,13 +27,19 @@ public class Test {
             add("2");
             add("2");
         }};
-        list.stream().filter(o -> o.equals("1")).forEach(System.out::println);
+        list.stream()
+                .filter(o -> o.equals("1"))
+                .map(o -> o.concat("+"))
+                .forEach(System.out::println);
         System.out.println("++++++++++++++++++");
         list.stream().map(o -> o.concat("-")).forEach(System.out::println);
         System.out.println("++++++++++++++++++");
-        list.stream().mapToInt(Integer::valueOf).distinct().forEach(System.out::println);
+        list.stream().
+                mapToInt(Integer::valueOf).
+                distinct().
+                forEach(System.out::println);
         System.out.println("++++++++++++++++++");
-        list.parallelStream().filter(o -> o.equals("1")).forEach(System.out::println);
+        list.parallelStream().filter(o -> o.equals("1")).collect(toList());
         System.out.println("++++++++++++++++++");
         boolean b = list.stream().anyMatch(o -> o.equals("2"));
         System.out.println(b);

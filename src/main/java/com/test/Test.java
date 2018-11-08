@@ -28,7 +28,11 @@ public class Test {
     static MyLock ml = new MyLock();
 
     public static void main(String[] args) {
-
+        int a = 0xffff;
+        a = 011;
+        System.out.println(a);
+       /* a = 1111111111111111
+        System.out.println(a);*/
         /*try {
             URL resource = Test.class.getResource("");
             Class<?> regexUtils = new MyClassLoader(resource.getPath()).loadClass("com.lyang.android.tools.RegexUtils");
@@ -41,7 +45,7 @@ public class Test {
             e.printStackTrace();
         }*/
        /* FatherClass s = new SonClass();*/
-        final TestClass testClass = new TestClass();
+        /*final TestClass testClass = new TestClass();
         new Thread(new Runnable() {
            public void run() {
                testClass.printA();
@@ -56,7 +60,7 @@ public class Test {
             public void run() {
                 testClass.printC();
             }
-        }).start();
+        }).start();*/
     }
 
     private static void reentrantLockTest() {
