@@ -83,3 +83,10 @@
 * SmartInitializingSingleton 所有非lazy单例Bean实例化完成后的回调方法
 * SpEL编译模式
 * TypeConverter 类型转换
+
+
+### springboot pom
+* spring-boot-parent 继承spring-boot-dependencies
+* spring-boot-starters 继承spring-boot-parent，包含所有启动器，包括spring-boot-starter-parent
+* spring-boot-starter-parent 继承spring-boot-dependencies，版本管理
+* 其他启动器 继承spring-boot-starters
