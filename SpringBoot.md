@@ -24,3 +24,9 @@
 11. 触发SpringApplicationRunListener监听(ApplicationStartedEvent)
 12. 执行ApplicationRunner和CommandLineRunner
 13. 触发SpringApplicationRunListener监听(ApplicationReadyEvent)
+
+### POM配置
+* spring-boot-parent 继承spring-boot-dependencies
+* spring-boot-starters 继承spring-boot-parent，包含所有启动器，包括spring-boot-starter-parent
+* spring-boot-starter-parent 继承spring-boot-dependencies，版本管理
+* 其他启动器 继承spring-boot-starters
