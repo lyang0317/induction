@@ -13,3 +13,15 @@
     Rest客户端，绑定地址端口
 * Zuul
     路由
+* Stream
+    对接消息中间件
+* Bus
+    总线，用于分布式节点间的通信
+* Sleuth
+    监控
+* Consul
+    服务发现，保证CA
+* Zookeeper
+* Security
+* Contract
+    消费段保证测试统一可用
