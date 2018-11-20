@@ -9,3 +9,9 @@
 * Memcache分布式缓存（一致性H按时，虚拟节点保证负载均衡）
 * XSS 注入 CSRF
 * 单向散列（salt） 对称 非对称
+
+### Speak
+* 重复谈话，降调语气
+
+### Tomcat
+* Bootstrap(启动器) Connector(Coyote) Processor(处理池，创建请求响应，解析请求，处理逻辑) Request Response
