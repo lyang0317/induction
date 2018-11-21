@@ -20,5 +20,7 @@
 * Context（web） Wrapper（servlet）
 
     baseValue(servlet) + value
+    
     tomcat5 pipeline（invoke） -> valuecontext(invoke(this) 内部维护value数组迭代) -> value(invokeNext)
+    
     tomcat7 pipeline（getNext().invoke 内部维护value单向链表） -> value（invoke）
