@@ -12,6 +12,13 @@
 
 ### Speak
 * 重复谈话，降调语气
+* 标注情感（注重消极）
+* 谨慎是回答，控制否回答，拥抱否回答
 
 ### Tomcat
 * Bootstrap(启动器) Connector(Coyote) Processor(处理池，创建请求响应，解析请求，处理逻辑) Request Response
+* Context（web） Wrapper（servlet）
+
+    baseValue(servlet) + value
+    tomcat5 pipeline（invoke） -> valuecontext(invoke(this) 内部维护value数组迭代) -> value(invokeNext)
+    tomcat7 pipeline（getNext().invoke 内部维护value单向链表） -> value（invoke）
