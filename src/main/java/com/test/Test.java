@@ -1,26 +1,8 @@
 package com.test;
 
-import com.test.classloader.MyClassLoader;
-import com.test.construct.FatherClass;
-import com.test.construct.SonClass;
 import com.test.lock.MyLock;
 
-import javax.lang.model.SourceVersion;
-import javax.tools.*;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Writer;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Test {
 
@@ -28,6 +10,9 @@ public class Test {
     static MyLock ml = new MyLock();
 
     public static void main(String[] args) {
+        System.out.println(reverse(123));
+
+
         int a = 0xffff;
         a = 011;
         System.out.println(a);
@@ -61,6 +46,30 @@ public class Test {
                 testClass.printC();
             }
         }).start();*/
+    }
+
+    private static Integer reverse(Integer x) {
+        if(x == 0)
+            return 0;
+        StringBuilder sb = new StringBuilder();
+        String str = String.valueOf(x);
+        boolean zeroFlag = false;
+        boolean negativeFlag = false;
+        for(int i = str.length()-1; i >= 0; i--) {
+            char c = str.charAt(i);
+            if('-' == c) {
+                negativeFlag = true;
+                continue;
+            }
+            if('0' != c) {
+                zeroFlag = true;
+            }
+            if(zeroFlag) {
+                sb.append(String.valueOf(c));
+            }
+        }
+        Integer integer = Integer.valueOf(sb.toString());
+        return negativeFlag ? 0-integer : integer;
     }
 
     private static void reentrantLockTest() {
