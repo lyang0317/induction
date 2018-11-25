@@ -1,7 +1,17 @@
 package com.test;
 
+import com.test.construct.FatherClass;
+import com.test.construct.SonClass;
+import com.test.extend.Father;
+import com.test.extend.SonA;
+import com.test.extend.SonB;
 import com.test.lock.MyLock;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Test {
@@ -9,12 +19,72 @@ public class Test {
     static ReentrantLock rl = new ReentrantLock();
     static MyLock ml = new MyLock();
 
+    static class A {
+        public String show(D obj) {
+            return "DinA";
+        }
+        public String show(A obj) {
+            return "AinA";
+        }
+    }
+
+    static class B extends A {
+        public String show(B obj) {
+            return "BinB";
+        }
+        public String show(A obj) {
+            return "AinB";
+        }
+    }
+
+    static class C extends B {
+        public String show(C obj) {
+            return "CinC";
+        }
+    }
+
+    static class D extends B {
+        public String show(B obj) {
+            return "BinD";
+        }
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(reverse(123));
+        FatherClass f = new SonClass();
+        System.out.println("========");
+        int i = 1;
+        int x = i++ + i;
+        System.out.println(x);
+        System.out.println("============");
+        List<String> list = new ArrayList<>();
+        list.add("bb");
+        String aa = "123" + list;
+        System.out.println(aa);
+        System.out.println("123" + new Father());
+        System.out.println("===============");
+        Father f1 = new SonA();
+        f1.add("sonA");
+        Father f2 = new SonB();
+        f2.add("sonB");
+        System.out.println(f1);
+        System.out.println(f2);
+
+        A a = new B();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+
+        System.out.println(b.show(b));
+        System.out.println(a.show(c));
+        System.out.println(a.show(d));
 
 
-        int a = 0xffff;
-        a = 011;
+        System.out.println(reverse(964632351));
+
+
+        int a1 = 0xffff;
+        a1 = 011;
         System.out.println(a);
        /* a = 1111111111111111
         System.out.println(a);*/
@@ -29,7 +99,7 @@ public class Test {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }*/
-       /* FatherClass s = new SonClass();*/
+       /* Father s = new SonClass();*/
         /*final TestClass testClass = new TestClass();
         new Thread(new Runnable() {
            public void run() {
@@ -48,7 +118,7 @@ public class Test {
         }).start();*/
     }
 
-    private static Integer reverse(Integer x) {
+    private static Integer reverse(int x) {
         if(x == 0)
             return 0;
         StringBuilder sb = new StringBuilder();

@@ -14,6 +14,9 @@
 * 重复谈话，降调语气
 * 标注情感（注重消极）
 * 谨慎是回答，控制否回答，拥抱否回答
+* 重视"你说得对"
+* 谈判时限的掌控，公平的重要性，预设低起点，利用规避损失心理
+* 制造对方控制的幻觉，提出开放性问题
 
 ### Tomcat
 * Bootstrap(启动器) Connector(Coyote) Processor(处理池，创建请求响应，解析请求，处理逻辑) Request Response
@@ -24,3 +27,11 @@
     tomcat5 pipeline（invoke） -> valuecontext(invoke(this) 内部维护value数组迭代) -> value(invokeNext)
     
     tomcat7 pipeline（getNext().invoke 内部维护value单向链表） -> value（invoke）
+    
+* Lifecycle（生命周期接口，实现从父容器到各组件层层启动关闭的动作管理执行）
+
+    LifecycleEvent LifecycleListener LifecycleSupport
+    
+* Logger
+
+    LoggerBase SystemOutLogger SystemErrLogger FileLogger
