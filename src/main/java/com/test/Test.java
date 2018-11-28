@@ -51,6 +51,14 @@ public class Test {
 
 
     public static void main(String[] args) {
+        byte xx = 1;
+        byte yy = 123;
+        System.out.println(xx);
+        System.out.println(yy);
+        char zz = (char) ('0'+xx);
+        System.out.println(zz);
+
+
         FatherClass f = new SonClass();
         System.out.println("========");
         int i = 1;
