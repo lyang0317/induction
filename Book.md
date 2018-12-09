@@ -39,3 +39,7 @@
 * Loader Reloader
     
     WebappLoader WebappClassLoader（缓存、安全）
+    
+### 企业应用架构模式
+    * 分层
+    * 事务脚本 表模块 领域模型 51
