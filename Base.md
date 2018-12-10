@@ -25,4 +25,5 @@
 * new String在堆中创建新对象，不会查找常量池
 
 ### 框架
-* 请求对象添加@RequestBody标准化
+* 工具请求对象添加@RequestBody标准化
+* 页面ajax请求对象不加@RequestBody
