@@ -27,3 +27,4 @@
 ### 框架
 * 工具请求对象添加@RequestBody标准化
 * 页面ajax请求对象不加@RequestBody
+* 同一事务重复能检测
