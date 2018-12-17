@@ -189,3 +189,16 @@
     * 查看方式分为字节码指令和16进制数据
     * 数据依次为魔数版本、常量池、字段、方法，具体含义由各个结构规范表定义
     * JVM参照固定的规范结构解释字节码数据
+    
+* 字节码常量池解析
+    * 分配内存常量池内存（构造constantPoolOop）与解析常量池信息
+    * 构造constantPoolOop用于存储常量池信息，constantPoolOop的meta指向constantPoolKlass，constantPoolKlass的meta又指向klassKlass
+    * constantPoolOop的tags和数据区遵循字节码数据格式存放类型值和索引值
+    * oop/klass/handle体系及相互转换
+    * klassKlass构建步骤（constantPoolKlass/constantPoolOop与其类似）
+        1. 申请内存
+        2. 内存清零
+        3. 初始化mark
+        4. 初始化metadata
+        5. 初始化klass
+        6. 自指（针对klassKlass）
