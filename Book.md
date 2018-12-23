@@ -62,6 +62,8 @@
     * StandardHostMapper查找映射
     * Engine在需要支持多个虚拟机时使用
     
+* Server Service
+    
     
 ### 企业应用架构模式
     * 分层

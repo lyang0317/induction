@@ -51,6 +51,10 @@ public class Test {
 
 
     public static void main(String[] args) {
+        FatherClass ff = new SonClass();
+        System.out.println(ff.a);
+        SonClass ss = new SonClass();
+        System.out.println(ss.a);
         byte xx = 1;
         byte yy = 123;
         System.out.println(xx);
