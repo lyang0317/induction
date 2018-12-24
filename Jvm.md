@@ -205,3 +205,8 @@
         
 * 类变量解析
     内存对齐和字段重排使得节省内存
+    
+* JAVA栈帧
+    * entry_point -> generate_method_entry -> generate_normal_entry
+    * java基于栈式指令集，操作系统基于寄存器指令集
+    * 堆栈存放栈帧，栈帧粗放操作栈、帧数据和局部变量表
