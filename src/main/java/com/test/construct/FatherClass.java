@@ -7,6 +7,8 @@ import java.util.Set;
 
 public class FatherClass {
 
+    public int a = 1;
+
     public static String flag = "father";
 
     public FatherClass() {

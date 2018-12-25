@@ -86,11 +86,11 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 23, 29};
-        int[] b = {4, 9, 18, 19};
-        double medianSortedArrays = findMedianSortedArrays(a, b);
-        System.out.println(medianSortedArrays);
-        /*byte xx = 1;
+        FatherClass ff = new SonClass();
+        System.out.println(ff.a);
+        SonClass ss = new SonClass();
+        System.out.println(ss.a);
+        byte xx = 1;
         byte yy = 123;
         System.out.println(xx);
         System.out.println(yy);
@@ -132,7 +132,7 @@ public class Test {
 
         int a1 = 0xffff;
         a1 = 011;
-        System.out.println(a);*/
+        System.out.println(a);
        /* a = 1111111111111111
         System.out.println(a);*/
         /*try {

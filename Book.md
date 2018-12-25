@@ -40,6 +40,31 @@
     
     WebappLoader WebappClassLoader（缓存、安全）
     
+* Session
+    
+    Manager StoreBase
+    
+* Principal LoginConfig Authenticator
+
+* StandardWrapper
+
+    * SingleThreadModel 并不保证线程安全
+    * StandardWrapperFacade隐藏内部实现
+    * FilterChain执行过滤器
+    
+* StandardContext
+
+    * StandardContextMapper查找映射
+    * backgroundProcess新开线程定时处理业务
+    
+* Host Engine
+    
+    * StandardHostMapper查找映射
+    * Engine在需要支持多个虚拟机时使用
+    
+* Server Service
+    
+    
 ### 企业应用架构模式
     * 分层
     * 事务脚本 表模块 领域模型 59
