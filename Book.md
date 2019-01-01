@@ -56,7 +56,27 @@
     * GenericPrincipal 验证信息类
     * LoginConfig 包含领域对象名字和所用的验证方法
     * Authenticator 验证器
+
+* StandardWrapper
+
+    * SingleThreadModel 并不保证线程安全
+    * StandardWrapperFacade隐藏内部实现
+    * FilterChain执行过滤器
+    
+* StandardContext
+
+    * StandardContextMapper查找映射
+    * backgroundProcess新开线程定时处理业务
+    
+* Host Engine
+    
+    * StandardHostMapper查找映射
+    * Engine在需要支持多个虚拟机时使用
+    
+* Server Service
+    
     
 ### 企业应用架构模式
     * 分层
-    * 事务脚本 表模块 领域模型 41
+    * 事务脚本 表模块 领域模型 59
+    * 活动记录 工作单元 结构映射 表数据入口 行数据入口

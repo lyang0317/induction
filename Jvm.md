@@ -170,3 +170,43 @@
         6. 参数入栈
         7. 函数调用（entry_point）
         ![](_call_stub_entry_1.png)
+        
+* JAVA数据结构
+    * 编译成字节码（跨平台），运行时实现（还原原始结构）
+    * class文件各组成
+        1. MagicNumber 固定表示class文件
+        2. Version 版本
+        3. 常量池（包括字面常量和符号引用）
+    * opp-klass模型
+        1. opp 描述对象实例信息
+        2. klass 描述java类
+    * 大端小端（网络协议，跨平台兼容考虑）
+        * 低位高位字节和内存低位高位不一致
+        * 本质产生原因由于寄存器是数据指令必经中转，寄存器容纳多字节，内存单元始终一字节
+        * JVM调用转换接口防止校验失败
+        
+* 字节码解读
+    * 查看方式分为字节码指令和16进制数据
+    * 数据依次为魔数版本、常量池、字段、方法，具体含义由各个结构规范表定义
+    * JVM参照固定的规范结构解释字节码数据
+    
+* 字节码常量池解析
+    * 分配内存常量池内存（构造constantPoolOop）与解析常量池信息
+    * 构造constantPoolOop用于存储常量池信息，constantPoolOop的meta指向constantPoolKlass，constantPoolKlass的meta又指向klassKlass
+    * constantPoolOop的tags和数据区遵循字节码数据格式存放类型值和索引值
+    * oop/klass/handle体系及相互转换
+    * klassKlass构建步骤（constantPoolKlass/constantPoolOop与其类似）
+        1. 申请内存
+        2. 内存清零
+        3. 初始化mark
+        4. 初始化metadata
+        5. 初始化klass
+        6. 自指（针对klassKlass）
+        
+* 类变量解析
+    内存对齐和字段重排使得节省内存
+    
+* JAVA栈帧
+    * entry_point -> generate_method_entry -> generate_normal_entry
+    * java基于栈式指令集，操作系统基于寄存器指令集
+    * 堆栈存放栈帧，栈帧粗放操作栈、帧数据和局部变量表

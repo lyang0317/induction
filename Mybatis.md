@@ -45,3 +45,4 @@
     
     SqlSessionFactoryBuilder先初始化cache，执行查询调用CacheExecutor，如果缓存有则直接返回，没有则查询数据库。
 
+mybatis-generator:generate

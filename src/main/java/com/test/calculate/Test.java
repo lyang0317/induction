@@ -9,7 +9,8 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class Test {
 
-    public static void main(String[] args) {
+    public strictfp static void main(String[] args) {
+        System.out.println(1);
         /*LinkedList<Integer> list1 = new LinkedList<>();
         list1.add(1);
         list1.add(2);
