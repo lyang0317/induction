@@ -209,4 +209,11 @@
 * JAVA栈帧
     * entry_point -> generate_method_entry -> generate_normal_entry
     * java基于栈式指令集，操作系统基于寄存器指令集
-    * 堆栈存放栈帧，栈帧粗放操作栈、帧数据和局部变量表
+    * 堆栈存放栈帧，栈帧存放操作栈、帧数据和局部变量表
+    * 创建栈帧步骤
+    * 局部变量表与slot复用
+    
+* 类方法解析
+    * 方法属性解析复制
+    * methodOop创建（类似常量池Oop创建）
+    * 编译器自动生成clinit与init方法，并添加初始化代码块到其中
