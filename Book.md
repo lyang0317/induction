@@ -41,10 +41,21 @@
     WebappLoader WebappClassLoader（缓存、安全）
     
 * Session
-    
-    Manager StoreBase
-    
-* Principal LoginConfig Authenticator
+
+    * Manager ManagerBase（管理session）
+        1. StandardManager
+        2. PersistentManager
+        3. DistributedManager
+    * StoreBase
+        1. FileStore
+        2. JDBCStore
+       
+* 安全性
+
+    * Realm 身份验证领域类，重载四个验证方法
+    * GenericPrincipal 验证信息类
+    * LoginConfig 包含领域对象名字和所用的验证方法
+    * Authenticator 验证器
 
 * StandardWrapper
 

@@ -9,8 +9,64 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class Test {
 
+    public static String longestPalindrome(String s) {
+        int length = s.length();
+        String temp = "";
+        int middle = length / 2;
+
+        a:while (middle > 0) {
+            int left = middle - 1;
+            int right = middle + 1;
+            Character middleValue = s.charAt(middle);
+            String str = middleValue.toString();
+            while(left >= 0 && right <= length - 1) {
+                Character leftValue = s.charAt(left);
+                Character rightValue = s.charAt(right);
+                if(leftValue.equals(rightValue)) {
+                    str = leftValue.toString() + str + rightValue.toString();
+                    left--;
+                    right++;
+                    if(str.length() > temp.length()) {
+                        temp = str;
+                    } else if(left < 0 || right > length - 1) {
+                        break a;
+                    }
+                } else {
+                    middle--;
+                    break;
+                }
+            }
+        }
+
+        middle = length / 2;
+        b:while (middle < s.length()-1) {
+            int left = middle - 1;
+            int right = middle + 1;
+            Character middleValue = s.charAt(middle);
+            String str = middleValue.toString();
+            while(left >= 0 && right <= length - 1) {
+                Character leftValue = s.charAt(left);
+                Character rightValue = s.charAt(right);
+                if(leftValue.equals(rightValue)) {
+                    str = leftValue.toString() + str + rightValue.toString();
+                    left--;
+                    right++;
+                    if(str.length() > temp.length()) {
+                        temp = str;
+                    } else if(left < 0 || right > length - 1) {
+                        break b;
+                    }
+                } else {
+                    middle++;
+                    break;
+                }
+            }
+        }
+        return temp;
+    }
+
     public strictfp static void main(String[] args) {
-        System.out.println(1);
+        System.out.println(longestPalindrome("adfasdfaabbew"));
         /*LinkedList<Integer> list1 = new LinkedList<>();
         list1.add(1);
         list1.add(2);
