@@ -85,7 +85,53 @@ public class Test {
         return 0.0;
     }
 
+    public static int myAtoi(String str) {
+        List<String> digits = new ArrayList(){{
+            add("0");
+            add("1");
+            add("2");
+            add("3");
+            add("4");
+            add("5");
+            add("6");
+            add("7");
+            add("8");
+            add("9");
+        }};
+        String strs = str.trim();
+        String temp = "";
+        boolean negative = false;
+        for(int i=0; i<strs.length(); i++) {
+            String substring = strs.substring(i, i+1);
+            if(substring.equals("-") & i == 0) {
+                negative = true;
+            } else {
+                if(!digits.contains(substring)){
+                    break;
+                } else {
+                    temp += substring;
+                }
+            }
+        }
+        int value = 0;
+        if (!temp.equals("")) {
+            try {
+                value = Integer.valueOf(temp);
+            } catch(Exception e) {
+                value = Integer.MAX_VALUE;
+            }
+        }
+
+        if(negative) {
+            return 0 - value;
+        } else {
+            return value;
+        }
+    }
+
     public static void main(String[] args) {
+        System.out.println(myAtoi("-91283472332"));
+
         FatherClass ff = new SonClass();
         System.out.println(ff.a);
         SonClass ss = new SonClass();

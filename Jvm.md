@@ -136,7 +136,12 @@
     * 和没有引用一样，在任何时候都会被回收
     * 用来跟踪被垃圾回收器回收的活动
     * 必须和ReferenceQueue使用
-    
+   
+###  虚拟机
+* JRocket BEA
+* Hotspot SUN（早期为Classic VM/EXACT VM）
+* J9 IBM
+
 ### 底层原理
 * 中间语言到机器语言
     1. C语言逐个翻译成机器语言（效率低）
