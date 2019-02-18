@@ -20,4 +20,16 @@
         ReentrantLock实现
     * ConcurrentHashMap
         * 1.7采用分段加Segment锁，结构为Segment+数组+链表
+            * put
+                1. 计算Segment索引值
+                2. 尝试获取Segment对应锁
+                3. 进行更新操作
         * 1.8采用synchronize+cas控制多线程同步，结构为Node数组+链表/红黑树
+            * put
+                1. 计算hash值
+                2. 条件判断进行相应处理
+                    ① 初始化数组
+                    ② CAS设置元素（借用Unsafe原子方法更新内存数据）
+                    ③ 数组多线程扩容（借用ForwardingNode作为标识节点）
+                    ④ synchronize同步设置元素，并且按需转化为红黑树
+                3. 更新KV数量
