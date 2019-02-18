@@ -2,6 +2,7 @@
 
 ### 特征
     * 多样的数据模型（string set list sortedset hash）
+        字符串使用的SDS字符串数据对象，包含len和字符数组，比起C原始字符串效率更快
     * 持久化
     * 主从同步 master将数据同步到slave，典型分布式读写分离模型
     
