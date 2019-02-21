@@ -250,4 +250,4 @@
     C1 Client Compiler
         提高编译速度
     C2 Server Compiler
-        提高便以质量
+        提高编译质量
