@@ -41,6 +41,11 @@
     redisObject
     type encoding vm ptr
     
+    根据不同数据类型大小选择不同的数据结构存储（命令多态），ptr指向数据内容。
+    通过计数实现对象回收，通过共享对象节约内存
+    
+    redisServer -> redisDb -> dict（正常键空间+过期键空间）
+    
 ### 处理命令逻辑
 
     1. 从多路复用框架中select出已经ready的文件描述符（ready标准是已到达内核、已准备写入数据）
