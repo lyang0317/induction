@@ -83,3 +83,6 @@
 * SmartInitializingSingleton 所有非lazy单例Bean实例化完成后的回调方法
 * SpEL编译模式
 * TypeConverter 类型转换
+* Autowired注解通过AutowiredAnnotationBeanPostProcessor(通过统一的内部处理器(似乎是internalConfigurationAnnotationProcessor)
+实例化读取AutowiredAnnotationBeanPostProcessor类信息)进行处理，bean实例化时调用populateBean实例化AutowiredAnnotationBeanPostProcessor
+处理注入依赖
