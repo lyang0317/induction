@@ -66,6 +66,39 @@ public class Test {
     }
 
     public strictfp static void main(String[] args) {
+        List<List<Integer>> resultList = new ArrayList<>();
+        Integer[] nums = new Integer[]{-1, 0, 1, 2, -1, -4};
+        Map<Integer, List<Integer>> map = new HashMap();
+        for (int i = 0; i < nums.length; i++) {
+            if(map.get(nums[i]) == null) {
+                List<Integer> indexList = new ArrayList<>();
+                indexList.add(i);
+                map.put(nums[i], indexList);
+            } else {
+                map.get(nums[i]).add(i);
+            }
+        }
+        Integer sum = 0;
+        int count = 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int k = i + 1; k < nums.length - i - 1; k++) {
+                Integer sumKey = 0 - (nums[i] + nums[k]);
+                if(map.get(sumKey) != null) {
+                    List<Integer> integers = map.get(sumKey);
+                    for (Integer integer : integers) {
+                        if(integer > i) {
+                            int itemp = i;
+                            int ktemp = k;
+                            resultList.add(new ArrayList(){{
+                                add(nums[itemp]);
+                                add(nums[ktemp]);
+                                add(integer);
+                            }});
+                        }
+                    }
+                }
+            }
+        }
         System.out.println(longestPalindrome("adfasdfaabbew"));
         /*LinkedList<Integer> list1 = new LinkedList<>();
         list1.add(1);
