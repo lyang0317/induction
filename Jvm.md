@@ -129,19 +129,19 @@
     * jstat JVM统计监测工具（查看gc）
     
 ### 引用类型
-* 强引用 StrongReference
-    new出来的对象
-* 软引用 SoftReference
-    * 内存不足，垃圾回收器会回收
-    * 可实现内存敏感的高速缓存
-    * 可以和ReferenceQueue使用
-* 弱引用 WeakReference
-    * 更短暂的生命周期，一旦发现只有弱引用的对象，不管内存如何，都会回收
-    * 可以和ReferenceQueue使用
-* 虚引用 PhantomReference
-    * 和没有引用一样，在任何时候都会被回收
-    * 用来跟踪被垃圾回收器回收的活动
-    * 必须和ReferenceQueue使用
+    * 强引用 StrongReference
+        new出来的对象
+    * 软引用 SoftReference
+        * 内存不足，垃圾回收器会回收
+        * 可实现内存敏感的高速缓存
+        * 可以和ReferenceQueue使用
+    * 弱引用 WeakReference
+        * 更短暂的生命周期，一旦发现只有弱引用的对象，不管内存如何，都会回收
+        * 可以和ReferenceQueue使用
+    * 虚引用 PhantomReference
+        * 和没有引用一样，在任何时候都会被回收
+        * 用来跟踪被垃圾回收器回收的活动
+        * 必须和ReferenceQueue使用
    
 ###  虚拟机
 * 分类

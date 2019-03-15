@@ -6,7 +6,7 @@
 * 机械硬盘转为固态硬盘
 * B+树 LSM树
 * RAID HDFS
-* Memcache分布式缓存（一致性H按时，虚拟节点保证负载均衡）
+* Memcache分布式缓存（一致性Hash，虚拟节点保证负载均衡）
 * XSS 注入 CSRF
 * 单向散列（salt） 对称 非对称
 
