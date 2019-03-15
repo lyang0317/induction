@@ -85,3 +85,7 @@
         zab引入leader角色，避免了竞争能够快速收敛趋于一致
         zab构建高可用分布式数据主备系统，paxos构建一个分布式的一致性状态机系统
         paxos无法保证因果顺序
+        
+### 流程
+    ZAB 选举 -> 发现 -> 同步 -> 广播
+    JAVA实现  Fast Leader Election(epoch -> zxid -> server id) -> 恢复 -> 广播
