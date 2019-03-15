@@ -77,3 +77,7 @@
     * LUA脚本执行
     * 排序
         内部通过数组结构排序实现
+    * 二进制位操作
+        逆序数组保证setbit高效，bitcount采用SWAR位运算及查表算法保证高效
+    * 慢查询日志、监视器
+        slowlog、monitor
