@@ -3,7 +3,12 @@
 ### 常见结构
 * Collection
     * Queue
-    ![](queue_oper.png)
+        ![](queue_oper.png)
+        * ArrayDeque
+            1.数组实现双端队列
+            2.扩容增加两倍
+            3.可以作为栈使用
+        * LinkedTransferQueue
     * List 有序重复
     * Set 无序不重复
 * Map
