@@ -10,5 +10,6 @@
     * 未add，可直接git diff 文件名
     * add未commit，可git diff Head 文件名
     * commit，需要git diff Head + ^ 或者~1
+* ^2代表第二个父节点 ~2代表回退2个提交的地方
 * git branch -d  git checkout
 * git log --pretty=oneline
