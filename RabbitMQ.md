@@ -18,6 +18,7 @@
      * 队列镜像
 
 ### 原理
+    * AMQP协议（流转过程）
     * 队列
         1. 四状态（alpha beta gamma delta）
         2. 五子队列
