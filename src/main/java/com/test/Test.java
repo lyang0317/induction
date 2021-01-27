@@ -150,7 +150,7 @@ public class Test {
         int x = i++ + i;
         System.out.println(x);
         System.out.println("============");
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList();
         list.add("bb");
         String aa = "123" + list;
         System.out.println(aa);

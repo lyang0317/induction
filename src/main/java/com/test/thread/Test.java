@@ -13,8 +13,8 @@ public class Test {
         countDownLatch = new CountDownLatch(2);
         cyclicBarrier = new CyclicBarrier(12);
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
+        final Thread thread1 = new Thread(new Runnable() {
+
             public void run() {
                 System.out.println("thread 1");
                 for (int i = 0; i < 5; i++) {
@@ -35,7 +35,7 @@ public class Test {
         System.out.println("thread 1 interrupt : " + thread1.isInterrupted());*/
 
         Thread thread2 = new Thread(new Runnable() {
-            @Override
+
             public void run() {
                 System.out.println("thread 2");
                 for (int i = 0; i < 5; i++) {
@@ -52,7 +52,7 @@ public class Test {
         System.out.println("thread 2 interrupt : " + thread2.isInterrupted());
 
         Thread thread3 = new Thread(new Runnable() {
-            @Override
+
             public void run() {
                 System.out.println("thread 3");
                 for (int i = 0; i < 5; i++) {

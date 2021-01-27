@@ -1,7 +1,7 @@
 package com.test.calculate;
 
 import java.util.*;
-import java.util.stream.IntStream;
+import java.util.function.Consumer;
 
 public class TestA {
 
@@ -113,7 +113,7 @@ public class TestA {
             res += 9 * A(9, i - 1);
 
         // Count the number with same prefix
-        Set<Integer> seen = new HashSet<>();
+        Set<Integer> seen = new HashSet();
         for (int i = 0; i < n; ++i) {
             for (int j = i > 0 ? 0 : 1; j < L.get(i); ++j)
                 if (!seen.contains(j))
@@ -208,7 +208,7 @@ public class TestA {
     }
 
     public static List<Integer> arrayToList(int[] buf){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList();
         for(int i : buf){
             list.add(i);
         }
@@ -246,7 +246,7 @@ class ListNode<T> implements Iterable<T> {
         return sb.toString();
     }
 
-    @Override
+
     public Iterator<T> iterator() {
         return new Itr(this);
     }
@@ -259,15 +259,23 @@ class ListNode<T> implements Iterable<T> {
             current = node;
         }
 
-        @Override
+
         public boolean hasNext() {
             return current.next != null;
         }
 
-        @Override
+
         public Object next() {
             current = current.next;
             return current.val;
+        }
+
+        public void remove() {
+
+        }
+
+        public void forEachRemaining(Consumer action) {
+
         }
     }
 

@@ -66,12 +66,12 @@ public class Test {
     }
 
     public strictfp static void main(String[] args) {
-        List<List<Integer>> resultList = new ArrayList<>();
-        Integer[] nums = new Integer[]{-1, 0, 1, 2, -1, -4};
+        List<List<Integer>> resultList = new ArrayList();
+        final Integer[] nums = new Integer[]{-1, 0, 1, 2, -1, -4};
         Map<Integer, List<Integer>> map = new HashMap();
         for (int i = 0; i < nums.length; i++) {
             if(map.get(nums[i]) == null) {
-                List<Integer> indexList = new ArrayList<>();
+                List<Integer> indexList = new ArrayList();
                 indexList.add(i);
                 map.put(nums[i], indexList);
             } else {
@@ -85,10 +85,10 @@ public class Test {
                 Integer sumKey = 0 - (nums[i] + nums[k]);
                 if(map.get(sumKey) != null) {
                     List<Integer> integers = map.get(sumKey);
-                    for (Integer integer : integers) {
+                    for (final Integer integer : integers) {
                         if(integer > i) {
-                            int itemp = i;
-                            int ktemp = k;
+                            final int itemp = i;
+                            final int ktemp = k;
                             resultList.add(new ArrayList(){{
                                 add(nums[itemp]);
                                 add(nums[ktemp]);
@@ -341,7 +341,6 @@ public class Test {
 
     static class MyComparator implements Comparator<Content> {
 
-        @Override
         public int compare(Content o1, Content o2) {
             if (o1.getNum() > o2.getNum()) {
                 return -1;
