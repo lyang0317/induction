@@ -25,3 +25,8 @@
         1. 与wait对应
     * signal
         1. 与await对应
+        
+### 中断
+   * interrupt() 中断当前阻塞线程
+   * interrupted() 设置中断标识，静态方法
+   * isInterrupted() 判断中断标识
