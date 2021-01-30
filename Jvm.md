@@ -102,11 +102,26 @@
     * 禁止重排序
     
 ### 类加载顺序
-    * Bootstrap 启动类 $JAVA_HOME中jre/lib/rt.jar里所有的class
-    * Extension 扩展类 $JAVA_HOME中jre/lib/*.jar或-Djava.ext.dirs指定目录下的jar包
-    * App 系统类 classpath中指定的jar包及目录中class
-    * Custom 自定义类 
-    先检查类是否被已加载，检查顺序是自底向上，而加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。
+   #### 类别
+   * Bootstrap 启动类 $JAVA_HOME中jre/lib/rt.jar里所有的class
+   * Extension 扩展类 $JAVA_HOME中jre/lib/*.jar或-Djava.ext.dirs指定目录下的jar包
+   * App 系统类 classpath中指定的jar包及目录中class
+   * Custom 自定义类 
+   
+   #### 概览
+   * 先检查类是否被已加载，检查顺序是自底向上，而加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。
+   * 各大默认加载器是组合关系
+    
+   #### 内部实现
+   * loadClass 主要进行类加载方法，破坏双亲重写它，不破坏继承它
+   * findClass 根据名称或位置加载字节码
+   * defineClass 把字节码转换成Class
+   
+   #### 破坏双亲实例
+   * jdbc jndi 加载具体实现
+   * tomcat 隔离为每个应用提供不同版本jar包
+   * osgi 热插拔
+   * jdk9 模块化，先找模块进行模块类加载，找不到再进行双亲委派
     
 ### happens-before
     
