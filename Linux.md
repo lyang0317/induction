@@ -26,3 +26,7 @@
 ### 定时任务
 * crontab
 * anacrontab
+
+### 任务管理
+* &
+* nohup
