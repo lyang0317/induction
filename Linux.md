@@ -30,3 +30,8 @@
 ### 任务管理
 * &
 * nohup
+
+### 程序管理
+* SUID/SGID命令运行方式
+* SELinux
+  ![](selinux_process.png)

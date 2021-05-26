@@ -32,3 +32,18 @@
     1. 多点接入
     2. 载波监听
     3. 碰撞检测
+    
+### 网络层
+* IP报文和分类
+* ARP和RARP(DHCP)
+  ![](ip_mac_transfer.png)
+* 划分子网
+    * 子网掩码
+* 构成超网
+    * 无分类编制(CIDR)
+    * IP地址路由算法
+* ICMP
+    * ping
+    * tracert
+* 内部网关协议(RIP)
+    * 路由表产生算法
