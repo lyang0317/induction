@@ -31,3 +31,13 @@
 4. Handler执行完毕适配器返回ModleAndView
 5. 视图解析器返回视图
 6. 响应结果
+
+### 内部实现
+* org.springframework.web.servlet.DispatcherServlet#doDispatch
+  1. getHandler
+  2. getHandlerAdapter
+  3. preHandle
+  4. handle
+  5. postHandle
+  6. render
+  7. triggerAfterCompletion
