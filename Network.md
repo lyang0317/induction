@@ -57,4 +57,13 @@
   * IGMP
   * 多播路由选择协议
 * VPN（专用隧道）和NAT（内部IP和接入互联网IP转换）
+
+### 运输层
+* UDP
+* TCP
+  * 停止等待协议
+  * 滑动窗口ARQ协议
+  * 可靠传输的实现
+    ![](tcp_send_window.png)
+    ![](tcp_window.png)
     
