@@ -66,4 +66,6 @@
   * 可靠传输的实现
     ![](tcp_send_window.png)
     ![](tcp_window.png)
-    
+  * 流量控制 
+    计算公式
+  * 拥塞控制
