@@ -69,3 +69,15 @@
   * 流量控制 
     计算公式
   * 拥塞控制
+    * 慢开始 拥塞避免
+    * 快重传 快恢复
+    * 随机早期检测RED避免尾部丢弃策略引起的拥塞
+  * 链接管理
+    * 三次握手
+        * 防止已失效的连接请求报文段
+    * 四次挥手
+        * 防止服务端最后确认丢失而造成的无法关闭
+        * 防止已失效的连接请求报文段
+    * 有限状态机
+        * 服务端  CLOSED -> LISTEN -> SYN-RCVD -> ESTABLISHED -> CLOSE-WAIT -> LAST-ACK -> CLOSED
+        * 客户端  CLOSED -> SYN-SENT -> ESTABLISHED -> FIN-WAIT-1 -> FIN-WAIT-2 -> TIME-WAIT -> CLOSED
