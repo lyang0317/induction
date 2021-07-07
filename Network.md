@@ -81,3 +81,10 @@
     * 有限状态机
         * 服务端  CLOSED -> LISTEN -> SYN-RCVD -> ESTABLISHED -> CLOSE-WAIT -> LAST-ACK -> CLOSED
         * 客户端  CLOSED -> SYN-SENT -> ESTABLISHED -> FIN-WAIT-1 -> FIN-WAIT-2 -> TIME-WAIT -> CLOSED
+  
+### 会话层
+* DNS
+  * 分布式管理
+  * 根域名服务器 顶级域名服务器 权限域名服务器 本地域名服务器
+  * 递归查询 迭代查询
+  * 高速缓存
