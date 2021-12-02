@@ -47,6 +47,7 @@
         corePoolSize tasks/(1/taskcost)（二八原则确定具体数值）
         queueCapacity (coreSizePool/taskcost)*responsetime
         maxPoolSize (max(tasks)- queueCapacity)/(1/taskcost)
+        keepAliveTime 默认值
         
 ### 源码
 * runStateOf(int c) 是通过与的方式，在clt字段中获取到clt的前三位，也就是线程池的状态标识。 
