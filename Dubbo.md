@@ -19,6 +19,7 @@
 ### 执行流程
 
 ![](dubbo-extension.png)
+![](dubbo-framework.jpg)
 
     调用
     1. 初始化解析服务

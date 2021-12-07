@@ -2,6 +2,7 @@
 
 # 命令
 * reset 直接回退操作
+  * reset后强制push到远程，其他人的本地版本执行git reset --hard origin/分支名进行强制同步
 * revert 反向新生成一个提交作为回退操作
 * merge 合并后记录原始合并分支
 * rebase 合并后形成一条分支
