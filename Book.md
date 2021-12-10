@@ -7,6 +7,7 @@
 * B+树 LSM树
 * RAID HDFS
 * Memcache分布式缓存（一致性Hash，虚拟节点保证负载均衡）
+  * 一直hash变动节点只需变动其中一段的数据
 * XSS 注入 CSRF
 * 单向散列（salt） 对称 非对称
 

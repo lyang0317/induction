@@ -30,3 +30,8 @@
     用于把多个jar包，打成1个jar包
 * spring-boot-maven-plugin
     所做的工作是在默认的maven-jar-plugin插件打包结束后，将项目依赖的jar包中的.class文件重新进行打包
+  
+### 命令
+    * mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
+    * mvn dependency:list
+    * mvn dependency:tree -Dincludes=*log4j*:*log4j*

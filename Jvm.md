@@ -141,11 +141,15 @@
 ### 调优命令
     * jps 输出jvm运行的进程状态信息
     * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长）
+        * jstack 39576 >out.txt（prio：Thread中线程优先级；tid：Thread中线程ID；nid：操作系统级别线程ID）
         1. 查询cpu利用率高的pid
         2. jstack导出栈信息
         3. pid转16进制在栈信息中对应nid值数据
     * jmap 查看堆内存使用情况（查看内存泄漏）
+        * jmap -heap 39576 > out1.txt
+        * jmap -histo 39576 > out2.txt
     * jstat JVM统计监测工具（查看gc）
+        * jstat -gcutil 39576 10000
     
 ### 引用类型
     * 强引用 StrongReference
