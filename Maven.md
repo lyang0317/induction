@@ -15,7 +15,11 @@
 6. import
     只能用在dependencyManagement里面，实现多继承maven parent
     
-
+### 标签
+* dependencies
+    子模块继承依赖
+* dependencyManagement
+    声明依赖，可以被子模块引用
 
 ## 插件
 * maven-compiler-plugin

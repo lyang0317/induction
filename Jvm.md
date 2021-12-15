@@ -140,7 +140,7 @@
     
 ### 调优命令
     * jps 输出jvm运行的进程状态信息
-    * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长）
+    * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长），可以检查死锁
         * jstack 39576 >out.txt（prio：Thread中线程优先级；tid：Thread中线程ID；nid：操作系统级别线程ID）
         1. 查询cpu利用率高的pid
         2. jstack导出栈信息

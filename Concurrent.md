@@ -4,6 +4,12 @@
         允许一个或多个线程，等待其他一组线程完成操作，再继续执行
     * CyclicBarrier
         允许一组线程相互之间等待，达到一个共同点，再继续执行
+    * Semaphore
+        控制同时访问的线程个数，通过acquire()获取许可，通过release()释放许可
+    * Exchanger
+        一个用于线程间协作的工具类。Exchanger用于进行线程间的数据交换。它提供一个同步点，在这个同步点两个线程可以交换彼此的数据。
+    这两个线程通过exchange方法交换数据， 如果第一个线程先执行exchange方法，它会一直等待第二个线程也执行exchange，当两个线程都
+    到达同步点时，这两个线程就可以交换数据，将本线程生产出来的数据传递给对方。
     * ThreadLocal
         * ThreadLocal只是操作Thread中的ThreadLocalMap对象的集合
         * ThreadLocalMap变量属于线程的内部属性，不同的线程拥有完全不同的ThreadLocalMap变量

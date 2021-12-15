@@ -11,8 +11,7 @@
     内部构造Node对象，维护一个双向链表
     Node节点和变量state都是volatile，保证线程之间可见性
     
-* 同步器加锁步骤
-    
+    同步器加锁步骤
     1. tryAquire 尝试获取锁
     2. addWaiter 构造节点添加到尾部
     3. acquireQueued 让节点以死循环获取同步状态，若成功就退出循环，内部通过Node状态判断挂起还是获取
