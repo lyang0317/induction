@@ -22,10 +22,11 @@
     NonfairSync和FairSync对应Sync的两个实现，默认采用非公平锁
     内部有ReadLock和WriteLock两个锁
     为了保证线程间内容的可见性，读锁和写锁是互斥的，这里的互斥是指线程间的互斥
-    读锁是共享锁，写锁是互斥锁
+    读锁是共享锁tryAcquireShared()，写锁是互斥锁tryAcquire()
     同一线程可以获取到写锁又获取到读锁，但是获取到了读锁不能继续获取写锁
     读写锁依托于AQS的State变量的位运算来区分读锁和写锁，高16位表示读锁，低16位表示写锁
     exclusiveCount(c)判断读写锁占用情况
+    writerShouldBlock()公平实现判断是否有等待线程；readerShouldBlock()非公平实现判断是否有等待写锁线程，避免写锁线程一直等待
     
 ### synchronize
 
