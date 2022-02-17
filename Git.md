@@ -14,3 +14,4 @@
 * ^2代表第二个父节点 ~2代表回退2个提交的地方
 * git branch -d  git checkout
 * git log --pretty=oneline
+  git reflog --date=local | grep 分支名 查看分支历史
