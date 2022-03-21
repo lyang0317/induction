@@ -85,6 +85,8 @@
       
 ### Redisson  
 
+   >[redis分布式锁发展](https://www.zhihu.com/question/300767410/answer/1698980571)
+
    >[锁实现](https://www.oschina.net/group/skill#/detail/2376273)
    * 核心技术
        * 合理应用 Redis的基本数据类型 HASH
