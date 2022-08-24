@@ -1,6 +1,7 @@
 ### 管道
 
 * grep cut split...
+  * grep 'http-apr-8080-exec-91' catalina.2022-08-24.log |grep '14:00:07.001'
 
 ### 正则
 
