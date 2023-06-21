@@ -6,9 +6,17 @@ public class Test {
 
     public static void main(String[] args) {
         //同步进行任务
-        CompletableFuture<ModeA> firstCompletableFuture = new CompletableFuture<>();
+        CompletableFuture<ModeA> firstCompletableFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return new ModeA(2, "second");
+        });
+        //CompletableFuture<ModeA> firstCompletableFuture = new CompletableFuture<>();
+        //firstCompletableFuture.complete(new ModeA(2, "second"));
         System.out.println("1:"+firstCompletableFuture);
-        firstCompletableFuture.complete(new ModeA(2, "second"));
         CompletableFuture<ModeB> secondCompletableFuture = firstCompletableFuture.thenCompose(res -> {
             CompletableFuture<ModeB> r = CompletableFuture.completedFuture(new ModeB("2", "second"));
             try {
