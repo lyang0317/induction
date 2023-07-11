@@ -45,7 +45,7 @@
         3. responsetime 系统容忍最大响应时间
     * 计算
         corePoolSize tasks/(1/taskcost)（二八原则确定具体数值）
-        queueCapacity (coreSizePool/taskcost)*responsetime
+        queueCapacity (coreSizePool/taskcost)*responsetime (影响响应时间)
         maxPoolSize (max(tasks)- queueCapacity)/(1/taskcost)
         keepAliveTime 默认值
         
