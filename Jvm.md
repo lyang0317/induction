@@ -149,7 +149,7 @@
         * jmap -heap 39576 > out1.txt
         * jmap -histo 39576 > out2.txt
         * jmap -dump:live,format=b,file=xxx.xxx [pid]
-        * tar -zcvf
+        * tar -zcvf xxx.tar.gz soucefile
     * jstat JVM统计监测工具（查看gc）
         * jstat -gcutil 39576 10000
     
