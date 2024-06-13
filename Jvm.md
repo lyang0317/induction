@@ -147,7 +147,7 @@
         3. pid转16进制在栈信息中对应nid值数据
     * jmap 查看堆内存使用情况（查看内存泄漏）
         * jmap -heap 39576 > out1.txt
-        * jmap -histo 39576 > out2.txt
+        * jmap -histo[:live] 39576 > out2.txt
         * jmap -dump:live,format=b,file=xxx.xxx [pid]
         * tar -zcvf xxx.tar.gz soucefile / tar -xzvf xxx.tar.gz
     * jstat JVM统计监测工具（查看gc）
