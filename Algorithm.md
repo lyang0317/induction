@@ -28,7 +28,7 @@
 
 ### LRU
 
-    LinkedHashMap(HashMap+双向链表)
+    基于LinkedHashMap(HashMap+双向链表)，因为其覆写了HashMap的afterNodeAccess方法
     
 ### Arrays.sort原理
 * 首先检查数组长度，如果比阀值（286）小，直接使用双轴快排

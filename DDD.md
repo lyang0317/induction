@@ -42,6 +42,17 @@
 * 模板 
 * 策略 ThreadPoolExecutor
 
+### spring用到的设计模式
+* 简单工厂 BeanFactory获取bean
+* 工厂方法 SqlSessionFactoryBean getObject
+* 单例模式 getSingleton
+* 适配器模式 SpringMVC HandlerAdatper
+* 装饰器模式 带Wrapper、Decorator
+* 代理模式 aop
+* 观察者模式 ApplicationContextEvent
+* 策略模式 Resource接口
+* 模板模式 JDBCTemplate
+
 ### 七大设计原则
 * 开闭原则
 * 里氏代换原则

@@ -89,3 +89,15 @@
 ### 流程
     ZAB 选举 -> 发现 -> 同步 -> 广播
     JAVA实现  Fast Leader Election(epoch -> zxid -> server id) -> 恢复 -> 广播
+
+### 源码
+#### 群首选举
+![](zookeeper_class.png)
+#### 消息广播
+* ZooKeeperServer
+    1. ZooKeeperServer PrepRequestProcessor -> SyncRequestProcessor -> FinalRequestProcessor
+    2. LeaderZooKeeperServer 
+![](leaderzookeeper_processor.png)
+    3. FollowerZookeeperServer
+![](followerzookeeper_processor.png)
+* LearnerHandler

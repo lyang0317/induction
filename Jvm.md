@@ -98,8 +98,12 @@
 
 ### volatile
 
+    保证可见性、原子性，不保证原子性。实现机制为lock前缀指令，相当于内存栅栏。典型应用在双重检单例模式以防止new对象时虚拟机指令重排
+
     * 保证修饰的变量对所有线程可见
     * 禁止重排序
+
+    
     
 ### 类加载顺序
    #### 类别
@@ -136,12 +140,18 @@
     
 ### 调优命令
     * jps 输出jvm运行的进程状态信息
-    * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长）
+    * jstack 查看某个java进程内的线程堆栈信息（查看运行时间过长），可以检查死锁
+        * jstack 39576 >out.txt（prio：Thread中线程优先级；tid：Thread中线程ID；nid：操作系统级别线程ID）
         1. 查询cpu利用率高的pid
         2. jstack导出栈信息
         3. pid转16进制在栈信息中对应nid值数据
     * jmap 查看堆内存使用情况（查看内存泄漏）
+        * jmap -heap 39576 > out1.txt
+        * jmap -histo[:live] 39576 > out2.txt
+        * jmap -dump:live,format=b,file=xxx.xxx [pid]
+        * tar -zcvf xxx.tar.gz soucefile / tar -xzvf xxx.tar.gz
     * jstat JVM统计监测工具（查看gc）
+        * jstat -gcutil 39576 10000
     
 ### 引用类型
     * 强引用 StrongReference

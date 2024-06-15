@@ -85,6 +85,8 @@
       
 ### Redisson  
 
+   >[redis分布式锁发展](https://www.zhihu.com/question/300767410/answer/1698980571)
+
    >[锁实现](https://www.oschina.net/group/skill#/detail/2376273)
    * 核心技术
        * 合理应用 Redis的基本数据类型 HASH
@@ -95,3 +97,6 @@
        * Semaphore进行带期限、永久或者可中断的阻塞以及唤醒，替代 CountDownLatch中的无等待期限阻塞
     
    >上面的核心技术相对合理地应用，才能实现一个高效而且容错能力相对比较高的分布式锁方案，但是从目前来看，Redisson仍未解决red lock算法中的故障转移缺陷，笔者认为这个有可能是Redis实现分布式锁方案的一个底层缺陷，「此方案在Redis单实例中是相对完善」，一旦应用在Redis集群（普通主从、哨兵或者Cluster），有几率会出现前文提到的节点角色切换导致多个不同客户端获取到同一个资源对应的锁的问题。暂时无解。
+   
+### 命令
+    * info memory / memory usage

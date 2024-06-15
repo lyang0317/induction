@@ -19,6 +19,7 @@
 ### 执行流程
 
 ![](dubbo-extension.png)
+![](dubbo-framework.jpg)
 
     调用
     1. 初始化解析服务
@@ -97,3 +98,6 @@
     内部架构较为复杂
     依靠单独jar管理仓库
     分布式其他组件需要单独实现整合
+  
+### 额外
+* SPI机制运用不仅dubbo，还有LoggerFactory，目的解耦，实现类的可插拔切换

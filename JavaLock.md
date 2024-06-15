@@ -11,8 +11,7 @@
     内部构造Node对象，维护一个双向链表
     Node节点和变量state都是volatile，保证线程之间可见性
     
-* 同步器加锁步骤
-    
+    同步器加锁步骤
     1. tryAquire 尝试获取锁
     2. addWaiter 构造节点添加到尾部
     3. acquireQueued 让节点以死循环获取同步状态，若成功就退出循环，内部通过Node状态判断挂起还是获取
@@ -23,10 +22,11 @@
     NonfairSync和FairSync对应Sync的两个实现，默认采用非公平锁
     内部有ReadLock和WriteLock两个锁
     为了保证线程间内容的可见性，读锁和写锁是互斥的，这里的互斥是指线程间的互斥
-    读锁是共享锁，写锁是互斥锁
+    读锁是共享锁tryAcquireShared()，写锁是互斥锁tryAcquire()
     同一线程可以获取到写锁又获取到读锁，但是获取到了读锁不能继续获取写锁
     读写锁依托于AQS的State变量的位运算来区分读锁和写锁，高16位表示读锁，低16位表示写锁
     exclusiveCount(c)判断读写锁占用情况
+    writerShouldBlock()公平实现判断是否有等待线程；readerShouldBlock()非公平实现判断是否有等待写锁线程，避免写锁线程一直等待
     
 ### synchronize
 
