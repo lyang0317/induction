@@ -14,7 +14,7 @@
     和provided相同，不过被依赖项不会从maven仓库下载，而是从本地文件系统拿。需要添加systemPath的属性来定义路径
 6. import
     只能用在dependencyManagement里面，实现多继承maven parent
-* optinal
+* optional
 1. 代表可选，依赖不会传递下去
     
 ### 标签
