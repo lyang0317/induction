@@ -14,6 +14,8 @@
     和provided相同，不过被依赖项不会从maven仓库下载，而是从本地文件系统拿。需要添加systemPath的属性来定义路径
 6. import
     只能用在dependencyManagement里面，实现多继承maven parent
+* optinal
+1. 代表可选，依赖不会传递下去
     
 ### 标签
 * dependencies
@@ -39,3 +41,13 @@
     * mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
     * mvn dependency:list
     * mvn dependency:tree -Dincludes=*log4j*:*log4j*
+
+### 优先规则（确定唯一引用包）
+    * 先声明先引用
+    * 直接优先于间接
+    * 最短路径优先
+    * <dependencyManagement> > 子 pom（直接依赖） > 父 pom > 间接依赖
+
+### 冲突
+    * 相同包不同版本
+    * 不同包相同类（加载优先规则受系统等影响）

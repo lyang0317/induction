@@ -126,6 +126,9 @@
    * tomcat 隔离为每个应用提供不同版本jar包
    * osgi 热插拔
    * jdk9 模块化，先找模块进行模块类加载，找不到再进行双亲委派
+
+   #### 相同类名不同包加载顺序
+   * [链接](https://blog.csdn.net/jerry741/article/details/108771914)
     
 ### happens-before
     
