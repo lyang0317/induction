@@ -53,3 +53,4 @@
     * swagger考虑需要排除内部mapstruct
     * 建议maven引入放在lombok后面
     * 第一次引入mapstruct可能找不到注解，多试几次
+    * 可以安装idea mapstruct插件
