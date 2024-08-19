@@ -22,19 +22,19 @@
     
     
 ### 生命周期
-    1. 实例化BeanFactoryPostProcessor
-    2. 实例化BeanPostProcessor
-    3. 实例化InstantiationAwareBeanPostProcessorAdapter
+    1. 实例化BeanFactoryPostProcessor（实例化对象之前修改或创建BeanDefinition）
+    2. 实例化BeanPostProcessor（对象初始化前后增强）
+    3. 实例化InstantiationAwareBeanPostProcessorAdapter（对象实例化前后增强）
     4. 执行InstantiationAwareBeanPostProcessor的postProcessorBeforeInstantiation
     5. 执行bean构造器
-    6. 执行InstantiationAwareBeanPostProcessor的postProcessorPropertyValues
-    7. 调用BeanNameAware的setBeanName
-    8. 调用BeanFactoryAware的setBeanFactory
-    9. 执行BeanPostProcessor的postProcessInstantiation
-    10. 调用initialzingBean的afterPropertiesSet
-    11. 调用bean的init_method的属性指定的初始化方法
-    12. 执行BeanPostProcessor的postProcessAfterInstantiation
-    13. 执行InstantiationAwareBeanPostProcessor的postProcessAfterInitialization
+    6. 执行InstantiationAwareBeanPostProcessor的postProcessAfterInitialization（方法名可能有误）
+    7. 执行InstantiationAwareBeanPostProcessor的postProcessorPropertyValues
+    8. 调用BeanNameAware的setBeanName
+    9. 用BeanFactoryAware的setBeanFactory
+    10. 执行BeanPostProcessor的postProcessInstantiation
+    11. 调用initialzingBean的afterPropertiesSet
+    12. 调用bean的init_method的属性指定的初始化方法
+    13. 执行BeanPostProcessor的postProcessAfterInstantiation
     14. 初始化执行成功，程序使用bean
     15. 调用DisposableBean的destroy方法
     16. 调用bean的destory_method属性指定销毁方法
