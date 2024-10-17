@@ -20,3 +20,6 @@
 * git branch -d  git checkout
 * git log --pretty=oneline 
 * git reflog --date=local | grep/findstr 分支名 查看分支历史(第一个checkout moving from代表从哪个分支来的)
+
+# issue
+  1. OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 -- 设置取消http代理 git config --global --unset http.proxy
