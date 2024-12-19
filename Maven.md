@@ -40,7 +40,7 @@
 ### 命令
     * mvn dependency:tree -DoutputType=graphml -DoutputFile=dependency.graphml
     * mvn dependency:list
-    * mvn dependency:tree -Dincludes=*log4j*:*log4j*
+    * mvn dependency:tree -Dincludes=*log4j*:*log4j*(此方法比idea分析可靠)
 
 ### 优先规则（确定唯一引用包）
     * 先声明先引用
