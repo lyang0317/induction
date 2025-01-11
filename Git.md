@@ -22,4 +22,6 @@
 * git reflog --date=local | grep/findstr 分支名 查看分支历史(第一个checkout moving from代表从哪个分支来的)
 
 # issue
-  1. OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 -- 设置取消http代理 git config --global --unset http.proxy
+  1. OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 
+     1. 设置代理 git config --global http.proxy http://10.38.34.162:3128
+     2. 取消代理 git config --global --unset http.proxy
