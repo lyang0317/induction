@@ -13,3 +13,8 @@
 
 
 * 资源 [bilibili](https://www.bilibili.com/video/BV12Z4y1K7Kk?spm_id_from=333.788.recommend_more_video.-1&vd_source=a4f5167b4fb65355b6033394d8b45376)
+  * 矩阵基础
+    * 矩阵运算用向量的思维做
+      * AX = 0 = x1 * a1 + x2 * a2 + x3 * a3
+      * Qdiag(λ1,λ2,λ3)Q^T = λ1 * q1q1^T + λ2 * q2q2^T + λ3 * q3q3^T
+    * 行空间 列空间 零空间
