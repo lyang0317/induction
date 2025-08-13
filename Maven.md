@@ -46,7 +46,7 @@
     * 先声明先引用
     * 直接优先于间接
     * 最短路径优先
-    * <dependencyManagement> > 子 pom（直接依赖） > 父 pom > 间接依赖
+    * <dependencyManagement> > 子 pom（直接依赖） > 父(parent) pom > 间接依赖
 
 ### 冲突
     * 相同包不同版本
