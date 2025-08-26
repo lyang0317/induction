@@ -25,7 +25,8 @@
 
 ## 插件
 * maven-compiler-plugin
-    编译Java源码，一般只需设置编译的jdk版本
+    * 编译Java源码，一般只需设置编译的jdk版本
+    * `<compilerArgs><arg>-parameters</arg></compilerArgs>`解决@RequestParam反射获取方法参数名为arg0,arg1的问题
 * maven-dependency-plugin
     用于复制依赖的jar包到指定的文件夹里
 * maven-jar-plugin
