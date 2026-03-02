@@ -20,6 +20,9 @@
 * git branch -d  git checkout
 * git log --pretty=oneline 
 * git reflog --date=local | grep/findstr 分支名 查看分支历史(第一个checkout moving from代表从哪个分支来的)
+* git patch 生成变更补丁，应用到对应文件，常用作不同仓库之间同步
+* git cherry-pick 选择提交合并到当前分支，常用作同一仓库不同分支之间同步
+* git stash 临时保存当前修改，切换分支后恢复，常用作有其他功能要开发又想保存当前修改的内容
 
 # issue
   1. OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 0 
