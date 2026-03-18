@@ -23,7 +23,11 @@
 
 3. 创建Mapper
 
-4. 执行CRUD
+4. 创建Executor，有拦截器包装Executor
+
+5. 执行Executor，从MappedStatement获取Configuration，创建StatementHandler，有拦截器包装StatementHandler及相应类(拦截器都在Configuarion里，通过getAllInterfaces方法识别对应的要代理的方法)
+
+6. 执行CRUD
 
 
 ### 缓存
