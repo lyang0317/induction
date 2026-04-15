@@ -157,7 +157,7 @@
         * jstat -gcutil 39576 10000
         * jstat -gc 1 1s
     
-### 内存可视化工具
+### 内存可视化工具（以下工具遇到大dump文件需要调整配置文件）
     * VisualVm（可以直观看到引用）
     * Eclipse MAT
 
