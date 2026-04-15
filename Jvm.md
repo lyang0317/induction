@@ -158,7 +158,7 @@
         * jstat -gc 1 1s
     
 ### 内存可视化工具
-    * VisualVm
+    * VisualVm（可以直观看到引用）
     * Eclipse MAT
 
 ### 引用类型
